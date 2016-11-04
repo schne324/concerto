@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.filters {
+  padding: 1em;
+  display: flex;
+}
+
+.align-left {
+  margin-left: auto;
+}
+
+.container h2.subtitle {
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+
+.filter {
+  position: relative;
+}
+
+.filter-opts {
+  display: none;
+  position: absolute;
+  position: absolute;
+  z-index: 9;
+  background: #fff;
+  width: 294px;
+  text-align: left;
+  padding: 10px;
+  left: 0;
+  max-height: 250px;
+  overflow-y: scroll;
+  box-shadow: 1px 4px 15px #000;
+}
+
+.filter-opts.open {
+  display: block;
+}
+
+.filter-opt {
+  padding: 5px;
+}
+
+.filter-opt:hover, .filter-opt:focus {
+  background: #3273dc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.concert-box {
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid;
+}
+
+.concert-list {
+  margin-top: 10px;
+}
+
+.card-cols {
+  background: #3273dc;
+  padding: 14px;
+  border-radius: 15px;
+}
