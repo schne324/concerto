@@ -15,7 +15,9 @@ class App extends Component {
     super(props);
     this.state = {
       concerts: concerts,
-      filter: false
+      filter: false,
+      order: 'descending',
+      changed: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -23,7 +25,18 @@ class App extends Component {
   }
 
   render() {
-    const concertList = this.state.concerts.map((concert, i) => {
+    const concertList = this.state.concerts.sort((a, b) => {
+      const dateA = new Date(a.dates[0]);
+      const dateB = new Date(b.dates[0]);
+      const less = this.state.order === 'descending' ? 1 : -1;
+      const greater = less === 1 ? -1 : 1;
+      if (dateA < dateB) {
+        return less;
+      } else if (dateA > dateB) {
+        return greater;
+      }
+      return 0;
+    }).map((concert, i) => {
       return ( <Item key={i} data={concert} /> );
     });
 
@@ -33,7 +46,7 @@ class App extends Component {
           <img src={logo} className='App-logo' alt='logo' />
           <h1 className='title'>Concerts</h1>
         </div>
-        <Filters show={this.state.filter} onClearClick={this.onClearClick} />
+        <Filters show={this.state.filter} onClearClick={this.onClearClick} changed={this.state.changed} />
         <div className='concert-list hero is-info'>
           <div className='columns is-multiline card-cols'>{concertList}</div>
         </div>
@@ -47,7 +60,7 @@ class App extends Component {
     return {
       type: type && 'filter',
       filter: filter
-    }
+    };
   }
 
   handleClick(e) {
@@ -56,7 +69,8 @@ class App extends Component {
     if (target.type === 'filter') {
       this.setState(() => ({
         concerts: filtration.filter(target.filter),
-        filter: target.filter
+        filter: target.filter,
+        changed: true
       }));
     }
   }
@@ -76,9 +90,11 @@ class Item extends Component {
       <div className='concert-box column is-one-quarter'>
         <div className='tile is-vertical'>
           <div className='title'>{concert.artist}</div>
-          <div>{concert.dates.join(', ')}</div>
-          <div>{concert.venue}</div>
-          <div>{concert.location}</div>
+          <div className='other-info'>
+            <div>{concert.dates.join(', ')}</div>
+            <div>{concert.venue}</div>
+            <div>{concert.location}</div>
+          </div>
         </div>
       </div>
     );
@@ -97,7 +113,11 @@ class Filters extends Component {
       });
 
       return (
-        <div className='filters'>
+        <div className='filters' tabIndex='-1' ref={(div) => {
+          if (div && this.props.changed) {
+            div.focus();
+          }
+        }}>
           <h2 className='subtitle'>View:</h2>
           <Filter className='align-left' head={'Artists'} concertKey={'artist'} data={artists} />
           <Filter head={'Venues'} concertKey={'venue'} data={venues} />
@@ -106,7 +126,9 @@ class Filters extends Component {
       );
     } else {
       return (
-        <div className='filters' tabIndex='-1'>
+        <div className='filters' tabIndex='-1' ref={(div) => {
+          if (div) { div.focus(); }
+        }}>
           <div className='viewing subtitle'>Viewing:</div>
           <div className='filter-val'>{this.props.show.value}</div>
           <div className='filter-type'>({this.props.show.name})</div>
@@ -122,7 +144,7 @@ class Filter extends Component {
     super(props);
     this.state = {
       isOpen: false
-    }
+    };
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -135,7 +157,7 @@ class Filter extends Component {
     const opts = this.props.data.map((d, i) => {
       return (
         <div key={i} data-filter-key={this.props.concertKey} className='filter-opt'>{d}</div>
-      )
+      );
     });
 
     return (
@@ -146,7 +168,7 @@ class Filter extends Component {
         </button>
         <div id={menuID} className={fClass}>{opts}</div>
       </div>
-    )
+    );
   }
 
   handleClick() {
