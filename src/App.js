@@ -3,7 +3,7 @@ import Filtration from './filter.js';
 import logo from './logo.svg';
 import './App.css';
 import '../node_modules/bulma/css/bulma.css';
-import concerts from 'json!../data/concerts.json';
+import concerts from '../data/concerts.json';
 
 const filtration = new Filtration(concerts);
 const onlyUnique = (value, index, self) => {
