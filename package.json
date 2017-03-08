@@ -2,6 +2,7 @@
   "name": "concerto",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://schne324.github.io/concerto/",
   "devDependencies": {
     "gh-pages": "^0.12.0",
     "react-scripts": "0.8.5"

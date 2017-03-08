@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Filtration from './filter.js';
-import logo from './logo.svg';
 import './App.css';
 import '../node_modules/bulma/css/bulma.css';
 import concerts from '../data/concerts.json';
@@ -22,6 +21,7 @@ class App extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.onClearClick = this.onClearClick.bind(this);
+    this.onSortClick = this.onSortClick.bind(this);
   }
 
   render() {
@@ -43,11 +43,16 @@ class App extends Component {
     return (
       <div className='App container' onClick={this.handleClick}>
         <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='title'>Concerts</h1>
+          <h1>Concerts</h1>
         </div>
-        <Filters show={this.state.filter} onClearClick={this.onClearClick} changed={this.state.changed} />
-        <div className='concert-list hero is-info'>
+        <Filters
+          show={this.state.filter}
+          onClearClick={this.onClearClick}
+          changed={this.state.changed}
+          order={this.state.order}
+          onSortClick={this.onSortClick}
+        />
+        <div className='concert-list hero'>
           <div className='columns is-multiline card-cols'>{concertList}</div>
         </div>
       </div>
@@ -81,20 +86,28 @@ class App extends Component {
       filter: false
     }));
   }
+
+  onSortClick(e) {
+    if (e.currentTarget.getAttribute('aria-pressed') === 'true') { return; }
+    const prevState = e.currentTarget.getAttribute('data-sort-type');
+    this.setState(() => ({
+      order: prevState
+    }));
+  }
 }
 
 class Item extends Component {
   render() {
     const concert = this.props.data;
     return (
-      <div className='concert-box column is-one-quarter'>
-        <div className='tile is-vertical'>
+      <div className='concert-box column is-one-third-desktop is-half-tablet'>
+        <div>
           <div className='title'>{concert.artist}</div>
           <div className='other-info'>
-            <div>{concert.dates.join(', ')}</div>
             <div>{concert.venue}</div>
             <div>{concert.location}</div>
           </div>
+          <div className='dates'>{concert.dates.join(', ')}</div>
         </div>
       </div>
     );
@@ -103,6 +116,27 @@ class Item extends Component {
 
 class Filters extends Component {
   render() {
+    const sortButtons = (
+      <div role='group' aria-labelledby='sort-head' className='sort-wrap'>
+        <h2 className='subtitle' id='sort-head'>Sort:</h2>
+        <button
+          onClick={this.props.onSortClick}
+          className='button'
+          type='button'
+          data-sort-type='ascending'
+          aria-pressed={this.props.order === 'descending' ? 'false' : 'true'}>
+            Date (asc)
+        </button>
+        <button
+          onClick={this.props.onSortClick}
+          className='button'
+          type='button'
+          data-sort-type='descending'
+          aria-pressed={this.props.order === 'descending' ? 'true' : 'false'}>
+            Date (desc)
+        </button>
+      </div>
+    );
     if (!this.props.show) {
       const artists = concerts.map((c) => c.artist).filter(onlyUnique).sort();
       const venues = concerts.map((c) => c.venue).filter(onlyUnique).sort();
@@ -118,10 +152,13 @@ class Filters extends Component {
             div.focus();
           }
         }}>
-          <h2 className='subtitle'>View:</h2>
-          <Filter className='align-left' head={'Artists'} concertKey={'artist'} data={artists} />
-          <Filter head={'Venues'} concertKey={'venue'} data={venues} />
-          <Filter head={'Locations'} concertKey={'location'} data={locations} />
+          <div role='group' className='filter-wrap' aria-labelledby='view-head'>
+            <h2 className='subtitle' id='view-head'>View:</h2>
+            <Filter className='align-left' head={'Artists'} concertKey={'artist'} data={artists} />
+            <Filter head={'Venues'} concertKey={'venue'} data={venues} />
+            <Filter head={'Locations'} concertKey={'location'} data={locations} />
+          </div>
+          {sortButtons}
         </div>
       );
     } else {
@@ -129,10 +166,13 @@ class Filters extends Component {
         <div className='filters' tabIndex='-1' ref={(div) => {
           if (div) { div.focus(); }
         }}>
-          <div className='viewing subtitle'>Viewing:</div>
-          <div className='filter-val'>{this.props.show.value}</div>
-          <div className='filter-type'>({this.props.show.name})</div>
-          <button type='button' className='button' onClick={this.props.onClearClick}>Clear filter</button>
+          <div role='group' className='filter-wrap'>
+            <div className='viewing subtitle'>Viewing:</div>
+            <div className='filter-val'>{this.props.show.value}</div>
+            <div className='filter-type'>({this.props.show.name})</div>
+            <button type='button' className='button' onClick={this.props.onClearClick}>Clear filter</button>
+          </div>
+          {sortButtons}
         </div>
       );
     }
