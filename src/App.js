@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div className='App container' onClick={this.handleClick}>
         <div className='App-header'>
-          <h1>Concerts</h1>
+          <h1 className="title">Concerts</h1>
         </div>
         <Filters
           show={this.state.filter}
@@ -118,7 +118,7 @@ class Filters extends Component {
   render() {
     const sortButtons = (
       <div role='group' aria-labelledby='sort-head' className='sort-wrap'>
-        <h2 className='subtitle' id='sort-head'>Sort:</h2>
+        <h2 className='subtitle' id='sort-head'>Sort</h2>
         <button
           onClick={this.props.onSortClick}
           className='button'
@@ -153,7 +153,7 @@ class Filters extends Component {
           }
         }}>
           <div role='group' className='filter-wrap' aria-labelledby='view-head'>
-            <h2 className='subtitle' id='view-head'>View:</h2>
+            <h2 className='subtitle' id='view-head'>View</h2>
             <Filter className='align-left' head={'Artists'} concertKey={'artist'} data={artists} />
             <Filter head={'Venues'} concertKey={'venue'} data={venues} />
             <Filter head={'Locations'} concertKey={'location'} data={locations} />

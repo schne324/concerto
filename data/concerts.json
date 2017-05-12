@@ -628,5 +628,11 @@
     "dates": ["03/16/17"],
     "venue": "Hill Auditorium",
     "location": "Ann Arbor, MI"
+  },
+  {
+    "artist": "Trey Anastasio Band",
+    "dates": ["05/06/17"],
+    "venue": "Royal Oak Music Theater",
+    "location": "Royal Oak, MI"
   }
 ]

@@ -3,7 +3,8 @@
 }
 
 .App.container .App-header h1.title {
-  margin-top: 5px;
+  margin: 25px auto;
+
 }
 
 @keyframes App-logo-spin {
