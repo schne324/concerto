@@ -606,6 +606,12 @@
     "location": "Kalamazoo, MI"
   },
   {
+    "artist": "Mungion",
+    "dates": ["09/24/16"],
+    "venue": "Concord Music Hall",
+    "location": "Chicago, IL"
+  },
+  {
     "artist": "Moe.",
     "dates": ["09/23/16", "09/24/16"],
     "venue": "Concord Music Hall",
@@ -634,5 +640,23 @@
     "dates": ["05/06/17"],
     "venue": "Royal Oak Music Theater",
     "location": "Royal Oak, MI"
+  },
+  {
+    "artist": "Ween",
+    "dates": ["06/02/17"],
+    "venue": "Royal Oak Music Theater",
+    "location": "Royal Oak, MI"
+  },
+  {
+    "artist": "Leftover Salmon",
+    "dates": ["06/17/17"],
+    "venue": "Founders Fest",
+    "location": "Grand Rapids, MI"
+  },
+  {
+    "artist": "Umphrey's McGee",
+    "dates": ["06/17/17"],
+    "venue": "Founders Fest",
+    "location": "Grand Rapids, MI"
   }
 ]
