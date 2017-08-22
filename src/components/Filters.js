@@ -46,6 +46,7 @@ class Filters extends Component {
     };
 
     this.updateDropdown = this.updateDropdown.bind(this);
+    this.clear = this.clear.bind(this);
   }
 
   render() {
@@ -122,12 +123,17 @@ class Filters extends Component {
             <div className='viewing subtitle'>Viewing:</div>
             <div className='filter-val'>{this.props.show.value}</div>
             <div className='filter-type'>({this.props.show.name})</div>
-            <button type='button' className='button' onClick={this.props.onClearClick}>Clear filter</button>
+            <button type='button' className='button' onClick={this.clear}>Clear filter</button>
           </div>
           {sortButtons}
         </div>
       );
     }
+  }
+
+  clear(e) {
+    this.updateDropdown(null);
+    this.props.onClearClick();
   }
 
   updateDropdown(type) {

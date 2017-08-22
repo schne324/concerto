@@ -658,5 +658,11 @@
     "dates": ["06/17/17"],
     "venue": "Founders Fest",
     "location": "Grand Rapids, MI"
+  },
+  {
+    "artist": "Bela Fleck and the Flecktones",
+    "dates": ["08/12/17"],
+    "venue": "Freedom Hill Ampitheater",
+    "location": "Sterling Heights, MI"
   }
 ]
