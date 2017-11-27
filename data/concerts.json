@@ -570,6 +570,12 @@
     "location": "Ann Arbor, MI"
   },
   {
+    "artist": "Everyone Orchestra",
+    "dates": ["03/02/16"],
+    "venue": "The Ark",
+    "location": "Ann Arbor, MI"
+  },
+  {
     "artist": "Ween",
     "dates": ["04/14/16", "04/15/16", "04/16/16"],
     "venue": "Terminal 5",
@@ -648,6 +654,24 @@
     "location": "Royal Oak, MI"
   },
   {
+    "artist": "Mustard Plug",
+    "dates": ["06/17/17"],
+    "venue": "Founders Fest",
+    "location": "Grand Rapids, MI"
+  },
+  {
+    "artist": "Blues Traveler",
+    "dates": ["06/17/17"],
+    "venue": "Founders Fest",
+    "location": "Grand Rapids, MI"
+  },
+  {
+    "artist": "The Accidentals",
+    "dates": ["06/17/17"],
+    "venue": "Founders Fest",
+    "location": "Grand Rapids, MI"
+  },
+  {
     "artist": "Leftover Salmon",
     "dates": ["06/17/17"],
     "venue": "Founders Fest",
@@ -664,5 +688,53 @@
     "dates": ["08/12/17"],
     "venue": "Freedom Hill Ampitheater",
     "location": "Sterling Heights, MI"
+  },
+  {
+    "artist": "Chick Corea Elektric Band",
+    "dates": ["08/12/17"],
+    "venue": "Freedom Hill Ampitheater",
+    "location": "Sterling Heights, MI"
+  },
+  {
+    "artist": "Snarky Puppy",
+    "dates": ["09/15/17"],
+    "venue": "The Crofoot Ballroom",
+    "location": "Pontiac, MI"
+  },
+  {
+    "artist": "Robert Glasper Experiment",
+    "dates": ["09/15/17"],
+    "venue": "The Crofoot Ballroom",
+    "location": "Pontiac, MI"
+  },
+  {
+    "artist": "Spafford",
+    "dates": ["10/14/17"],
+    "venue": "The Blind Pig",
+    "location": "Ann Arbor, MI"
+  },
+  {
+    "artist": "Haley Jane and the Primates",
+    "dates": ["10/14/17"],
+    "venue": "The Blind Pig",
+    "location": "Ann Arbor, MI"
+  },
+  {
+    "artist": "Victor Wooten Trio",
+    "dates": ["10/26/17"],
+    "venue": "The Ark",
+    "location": "Ann Arbor, MI"
+  },
+  {
+    "artist": "John McLaughlin",
+    "dates": ["11/15/17"],
+    "venue": "Michigan Theater",
+    "location": "Ann Arbor, MI"
+  },
+  {
+    "artist": "Jimmy Herring",
+    "dates": ["11/15/17"],
+    "venue": "Michigan Theater",
+    "location": "Ann Arbor, MI"
   }
 ]
