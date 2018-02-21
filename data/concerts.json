@@ -534,7 +534,7 @@
     "location": "Kalamazoo, MI"
   },
   {
-    "artist": "Wood Brothers",
+    "artist": "The Wood Brothers",
     "dates": ["09/06/15"],
     "venue": "Michigan International Speedway",
     "location": "Brooklyn, MI"
@@ -735,6 +735,18 @@
     "artist": "Jimmy Herring",
     "dates": ["11/15/17"],
     "venue": "Michigan Theater",
+    "location": "Ann Arbor, MI"
+  },
+  {
+    "artist": "Greensky Bluegrass",
+    "dates": ["02/09/18"],
+    "venue": "The Fillmore",
+    "location": "Detroit, MI"
+  },
+  {
+    "artist": "The Wood Brothers",
+    "dates": ["04/18/18"],
+    "venue": "The Ark",
     "location": "Ann Arbor, MI"
   }
 ]
